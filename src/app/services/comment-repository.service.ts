@@ -82,7 +82,7 @@ export class CommentRepositoryService {
         comment.id = (
           Number(mockComments[mockComments.length - 1].id) + 1
         ).toString();
-        mockComments.push(comment);
+        mockComments.unshift(comment);
         return of({});
       })
     )

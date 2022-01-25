@@ -64,7 +64,10 @@ export class CommentFormComponent implements OnInit {
 
   public submit() {
     if (this.commentForm.valid) {
-      this.onSubmit.emit(this.commentForm.value);
+      this.onSubmit.emit({
+        id: this.comment?.id || '',
+        ...this.commentForm.value
+      });
     }
   }
 }

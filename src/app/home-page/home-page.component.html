@@ -2,6 +2,10 @@
   <app-tags-chips [allExistingTags]="tags"
                   (onChange)="filterByTags($event)"></app-tags-chips>
 
+
+  <button class="btn btn-block btn-dark"
+            [routerLink]="['comment']">New Comment</button>
+
   <app-comment-card *ngFor="let comment of comments"
                     [comment]="comment"
                     (onRemove)="removeComment($event)"></app-comment-card>
