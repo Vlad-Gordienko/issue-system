@@ -1,0 +1,24 @@
+<div class="comment">
+  <div class="comment-header">
+    <h2>{{comment.title}}</h2>
+  </div>
+
+  <div class="comment-content">
+    <small [innerHTML]="comment.text"></small>
+  </div>
+
+  <div class="comment-tags">
+    <mat-chip-list aria-label="Fruit selection">
+      <mat-chip *ngFor="let tag of comment.tags" [disabled]="true">{{tag}}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <button class="btn btn-dark"
+          [routerLink]="['', 0]">
+    <mat-icon>edit</mat-icon>
+  </button>
+
+  <button class="btn btn-danger" (click)="removeComment(comment.id)">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

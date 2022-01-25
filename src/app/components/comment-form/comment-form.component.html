@@ -1,0 +1,28 @@
+<form [formGroup]="commentForm" (ngSubmit)="submit()">
+
+  <label for="title">Title: </label>
+  <input id="title"
+         type="text"
+         formControlName="title">
+
+  <label for="text">Text: </label>
+  <textarea id="text"
+            type="text"
+            rows="4"
+            style="resize: none"
+            formControlName="text"></textarea>
+
+  <app-tags-chips [allExistingTags]="allExistingTags"
+                  [selectedTags]="tags"
+                  (onChange)="tags = $event"></app-tags-chips>
+
+  <br>
+
+  <button class="btn btn-dark"
+          type="submit"
+          [disabled]="!commentForm.valid">Submit</button>
+
+  <button class="btn btn-danger"
+          [routerLink]="['/']">Cancel</button>
+
+</form>
