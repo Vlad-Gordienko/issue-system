@@ -41,6 +41,12 @@ let mockComments: Comment[] = [
     title: 'Responsible coder',
     text: `I am not responsible of this code. They made me write it, against my will.`,
     tags: ['issue'],
+  },
+  {
+    id: '6',
+    title: 'Mathematica',
+    text: `I try to calculate expression 22+8-2*8/4 but in vain`,
+    tags: ['issue'],
   }
 ];
 

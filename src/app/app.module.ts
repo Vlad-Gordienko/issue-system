@@ -17,6 +17,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { CommentPageComponent } from './comment-page/comment-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
+import { CommentTextDirective } from './directives/comment-text.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
     CommentCardComponent,
     TagsChipsComponent,
     CommentPageComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    CommentTextDirective
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
     MatOptionModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CommentTextDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
