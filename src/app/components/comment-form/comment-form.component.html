@@ -20,7 +20,9 @@
 
   <button class="btn btn-dark"
           type="submit"
-          [disabled]="!commentForm.valid">Submit</button>
+          [disabled]="!commentForm.valid">
+    {{config.submitBtnText}}
+  </button>
 
   <button class="btn btn-danger"
           [routerLink]="['/']">Cancel</button>

@@ -8,8 +8,7 @@ const routes: Routes = [
   {
     path: '', component: MainLayoutComponent, children: [
       {path: '', component: HomePageComponent},
-      {path: 'comment/new', component: CommentPageComponent},
-      {path: 'comment/edit/:id', component: CommentPageComponent},
+      {path: 'comment', component: CommentPageComponent},
     ]
   },
 ];

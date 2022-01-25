@@ -3,6 +3,11 @@ import { Comment, Tag } from '../../comment.interface';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommentRepositoryService } from '../../services/comment-repository.service';
 
+
+interface Config {
+  submitBtnText: string,
+}
+
 @Component({
   selector: 'app-comment-form',
   templateUrl: './comment-form.component.html',
@@ -11,6 +16,10 @@ import { CommentRepositoryService } from '../../services/comment-repository.serv
 export class CommentFormComponent implements OnInit {
   @Input() comment!: Comment;
   @Output() onSubmit: EventEmitter<Comment> = new EventEmitter<Comment>();
+
+  @Input() public config: Config = {
+    submitBtnText: 'Submit'
+  }
 
   public allExistingTags: Tag[] = [];
 

@@ -67,6 +67,39 @@ export class CommentRepositoryService {
     )
   }
 
+  public get$(id: string): Observable<Comment | undefined> {
+    return this.httpClient.get<Comment>(`api/comments/${id}/`).pipe(
+      catchError(() => {
+        const comment = mockComments.find(comment => comment.id === id);
+        return of(comment);
+      })
+    )
+  }
+
+  public create$(comment: Comment): Observable<Object> {
+    return this.httpClient.post<Object>('api/comments/', comment).pipe(
+      catchError(() => {
+        comment.id = (
+          Number(mockComments[mockComments.length - 1].id) + 1
+        ).toString();
+        mockComments.push(comment);
+        return of({});
+      })
+    )
+  }
+
+  public update$(comment: Comment): Observable<Object> {
+    return this.httpClient.put<Object>(`api/comments/${comment.id}`, comment).pipe(
+      catchError(() => {
+        const index = mockComments.findIndex(item => item.id === comment.id);
+        if (index !== -1) {
+          mockComments[index] = comment;
+        }
+        return of({});
+      })
+    )
+  }
+
   public delete$(id: string): Observable<Object> {
     return this.httpClient.delete(`api/comments/${id}/delete/`).pipe(
       catchError(() => {

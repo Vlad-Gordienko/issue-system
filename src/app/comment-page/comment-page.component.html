@@ -1,2 +1,9 @@
-<app-comment-form [comment]="comment"
-                  (onSubmit)="onSubmit($event)"></app-comment-form>
+<app-comment-form *ngIf="comment?.id; else createForm"
+                  [comment]="comment"
+                  [config]="{submitBtnText: 'Update'}"
+                  (onSubmit)="update($event)"></app-comment-form>
+
+<ng-template #createForm>
+  <app-comment-form [config]="{submitBtnText: 'Create'}"
+                    (onSubmit)="create($event)"></app-comment-form>
+</ng-template>
